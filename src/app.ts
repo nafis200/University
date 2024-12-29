@@ -1,18 +1,22 @@
 import express, { Request, Response, Application } from 'express';
-
 import cors from 'cors';
 
 const app: Application = express();
-
-// parser
-
 app.use(express.json());
+app.use(
+  cors({
+    origin: ['http://localhost:5173'],
+  })
+);
 
-app.use(cors({ origin: ['/localhost:5173'] }));
+// Define routes
+app.use('/api/v1', (req: Request, res: Response) => {
+  res.send('API v1 Route');
+});
 
-app.use('/api/v1/');
+// Root route
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!!!!');
+  res.send('Hello World!!!!!!');
 });
 
 export default app;
