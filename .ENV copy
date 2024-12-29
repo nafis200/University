@@ -1,0 +1,13 @@
+
+NODE_ENV=development
+PORT = 5000
+DATABASE_URL = mongodb+srv://admin-user:tEulJgxp4g2GNcQA@cluster0.f8w8siu.mongodb.net/first-project?retryWrites=true&w=majority&appName=Cluster0
+BCRYPT_SALT_ROUNDS=12
+DEFAULT_PASS=phuniversity!@#
+JWT_ACCESS_SECRET = d76563dd6c7b4a0a4246beabb6875e8cbc31beaf9fb447dcdb0183ea82da994e
+JWT_REFRESH_SECRET = d5b7ef6638570aa71f037d3b79e778f5714a70bafd68ec22f9d25ed89de018a41575159680944e3e582241172289f8633b54c2a7a28b48d9ddcd097e0406a78e
+JWT_ACCESS_EXPIRES_IN=1d
+JWT_REFRESH_EXPIRES_IN=365d
+
+# node terminal call
+# require('crypto').randomBytes(32).toString('hex')
