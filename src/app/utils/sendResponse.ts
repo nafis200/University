@@ -7,6 +7,8 @@ type TResponse<T> = {
   data: T;
 };
 
+// data object array array of obejct string hote pare
+
 const sendResponse = <T>(res: Response, data: TResponse<T>) => {
   res.status(data?.statusCode).json({
     success: data.success,
