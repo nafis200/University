@@ -13,7 +13,7 @@ app.use(
 );
 
 // Define routes
-app.use('/api/v1',router);
+app.use('/api/v1', router);
 
 // Root route
 app.get('/', (req: Request, res: Response) => {
