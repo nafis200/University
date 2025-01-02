@@ -51,6 +51,37 @@ http://localhost:5000/api/v1/academic-semesters/create-academic-semester
     "endMonth":"April"
 }
 
+Academic faculty 
+
+{{ph-local-url}}/academic-faculties/create-academic-faculty
+
+{
+    "name":"faculty of engineering"
+}
+
+update
+http://localhost:5000/api/v1/academic-faculties/674dc84b6a5d838745c5692b
 
 
+{
+    "name":"faculty of testing"
+}
 
+Academic department
+
+create
+
+http://localhost:5000/api/v1/academic-departments/create-academic-department
+
+{
+    "name":"Department Of EEE",
+    "academicFaculty":"6774fc9b3328edefe4a5cb3b"
+}
+
+update
+
+http://localhost:5000/api/v1/academic-departments/6774ffbb440fdb9e6dba81e5
+
+{
+    "name":"Department of Chemical Engineering"
+}
