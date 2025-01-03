@@ -21,3 +21,15 @@ const handleCastError = (
 };
 
 export default handleCastError;
+
+
+// "err": {
+//   "stringValue": "\"jgjghj\"",
+//   "valueType": "string",
+//   "kind": "ObjectId",
+//   "value": "jgjghj",
+//   "path": "_id",
+//   "reason": {},
+//   "name": "CastError",
+//   "message": "Cast to ObjectId failed for value \"jgjghj\" (type string) at path \"_id\" for model \"AcademicDepartment\""
+// }

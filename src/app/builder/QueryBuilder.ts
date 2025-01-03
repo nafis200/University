@@ -1,4 +1,15 @@
+
 import { FilterQuery, Query } from 'mongoose';
+
+// modelQuery = Student.model() any model
+
+// query express theke asbe
+
+// Student.find() database theke query kore array or object dey
+
+// eikhane constructor and class er khela hocche
+
+// this.modelQuery = student.find()
 
 class QueryBuilder<T> {
   public modelQuery: Query<T[], T>;
@@ -8,7 +19,7 @@ class QueryBuilder<T> {
     this.modelQuery = modelQuery;
     this.query = query;
   }
-
+//  search able field asche
   search(searchableFields: string[]) {
     const searchTerm = this?.query?.searchTerm;
     if (searchTerm) {
@@ -18,6 +29,7 @@ class QueryBuilder<T> {
             ({
               [field]: { $regex: searchTerm, $options: 'i' },
             }) as FilterQuery<T>,
+            // type ta ta bole dite hobe eita je filterQuery
         ),
       });
     }
@@ -29,6 +41,8 @@ class QueryBuilder<T> {
     const queryObj = { ...this.query }; // copy
 
     // Filtering
+    // {"email": "nafis@gmail.com", searchTerm:"naf"}
+    // remove searchTerm "naf"
     const excludeFields = ['searchTerm', 'sort', 'limit', 'page', 'fields'];
 
     excludeFields.forEach((el) => delete queryObj[el]);

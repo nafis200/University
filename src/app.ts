@@ -15,6 +15,13 @@ app.use(
 // Define routes
 app.use('/api/v1', router);
 
+// const test = async (req: Request, res: Response) => {
+//   const a = 10;
+//   res.send(a);
+// };
+// promise.reject()
+// app.get('/', test);
+
 // Root route
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!!!!!!');

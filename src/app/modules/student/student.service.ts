@@ -26,12 +26,12 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
   { 'name.firstName': { $regex : query.searchTerm , $options: i}}
 
   
-  // WE ARE DYNAMICALLY DOING IT USING LOOP
-   const searchQuery = Student.find({
-     $or: studentSearchableFields.map((field) => ({
-       [field]: { $regex: searchTerm, $options: 'i' },
-    })),
-   });
+  // // WE ARE DYNAMICALLY DOING IT USING LOOP
+  //  const searchQuery = Student.find({
+  //    $or: studentSearchableFields.map((field) => ({
+  //      [field]: { $regex: searchTerm, $options: 'i' },
+  //   })),
+  //  });
 
   
    // FILTERING fUNCTIONALITY:
@@ -98,6 +98,8 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
 
   let fields = '-__v'; // SET DEFAULT VALUE
 
+  // ja ache sob daw kichu bad dibo na
+
   if (query.fields) {
     fields = (query.fields as string).split(',').join(' ');
 
@@ -108,6 +110,10 @@ const getAllStudentsFromDB = async (query: Record<string, unknown>) => {
   return fieldQuery;
 
   */
+
+
+
+// query builders Student.find() and query expect kore
 
   const studentQuery = new QueryBuilder(
     Student.find()
