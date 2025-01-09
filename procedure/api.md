@@ -85,3 +85,80 @@ http://localhost:5000/api/v1/academic-departments/6774ffbb440fdb9e6dba81e5
 {
     "name":"Department of Chemical Engineering"
 }
+
+Course
+
+Create
+
+{{ph-local-url}}/courses/create-course
+
+{
+  "title": "Daisyui",
+  "prefix": "CSS",
+  "code": 105,
+  "credits": 3,
+  "preRequisiteCourses": [
+    {
+      "course": "677844cf06caa879f487d074",
+      "isDeleted": false
+    },
+    {
+      "course": "6778451106caa879f487d078",
+      "isDeleted": false
+    }
+  ]
+}
+
+
+Faculty 
+
+post routes
+
+{{ph-local-url}}/users/create-faculty
+
+{
+    "password": "123",
+    "faculty": {
+        "designation": "Senior Professor",
+        "name": {
+            "firstName": "Nafis",
+            "middleName": "Ahamed.",
+            "lastName": "Iqbal"
+        },
+        "gender": "male",
+        "dateOfBirth": "1980-05-15",
+        "email": "nafisahamed@example.com",
+        "contactNo": "1234567890",
+        "emergencyContactNo": "0987654321",
+        "bloogGroup": "O+",
+        "presentAddress": "123 Elm Street, Cityville, Country",
+        "permanentAddress": "456 Oak Avenue, Townsville, Country",
+        "profileImg": "https://example.com/images/johndoe.jpg",
+        "academicDepartment": "6774ffb1440fdb9e6dba81e2",
+        "isDeleted": false
+    }
+}
+
+
+assign faculty
+
+Course er put method
+
+params id: course Id
+
+faculty member: teacher
+
+{{ph-local-url}}/courses/6778446f06caa879f487d070/assign-faculties
+
+{
+   "faculties":["677900ff84d489af569652f0","67790175fad321531500857e"] 
+}
+
+
+Remove faculties
+
+{{ph-local-url}}/courses/6778446f06caa879f487d070/remove-faculties
+
+{
+   "faculties":["67790175fad321531500857e"] 
+}

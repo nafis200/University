@@ -13,8 +13,8 @@ const createCourseIntoDB = async (payload: TCourse) => {
 
 const getAllCoursesFromDB = async (query: Record<string, unknown>) => {
   const courseQuery = new QueryBuilder(
-    Course.find(),
-    // .populate('preRequisiteCourses.course'),
+    Course.find()
+    .populate('preRequisiteCourses.course'),
     query,
   )
     .search(CourseSearchableFields)
@@ -23,7 +23,7 @@ const getAllCoursesFromDB = async (query: Record<string, unknown>) => {
     .paginate()
     .fields();
 
-  const result = await courseQuery.modelQuery;
+  const result = await courseQuery.modelQuery
   return result;
 };
 
@@ -56,6 +56,23 @@ const updateCourseIntoDB = async (id: string, payload: Partial<TCourse>) => {
       throw new AppError(httpStatus.BAD_REQUEST, 'Failed to update course!');
     }
 
+  //   const preRequisiteCourses = [
+  //     { course: 'Math 101', isDeleted: false },
+  //     { course: 'Physics 101', isDeleted: true },
+  //     { course: null, isDeleted: true },
+  //     { course: 'Chemistry 101', isDeleted: true },
+  //     { course: 'Biology 101', isDeleted: false }
+  // ];
+  
+  // const deletedPreRequisites = preRequisiteCourses
+  //     .filter((el) => el.course && el.isDeleted)
+  //     .map((el) => el.course);
+  
+  // console.log(deletedPreRequisites);
+
+  // Output: ['Physics 101', 'Chemistry 101']
+  
+
     // check if there is any pre requisite courses to update
     if (preRequisiteCourses && preRequisiteCourses.length > 0) {
       // filter out the deleted fields
@@ -63,12 +80,26 @@ const updateCourseIntoDB = async (id: string, payload: Partial<TCourse>) => {
         .filter((el) => el.course && el.isDeleted)
         .map((el) => el.course);
 
+      //   {
+      //     "_id": 2,
+      //     "course": "Physics 101",
+      //     "status": "deleted"
+      // },
+      // {
+      //     "_id": 3,
+      //     "course": "Chemistry 101",
+      //     "status": "deleted"
+      // }
+      // $in er kaj
+      
+
       const deletedPreRequisiteCourses = await Course.findByIdAndUpdate(
         id,
         {
           $pull: {
             preRequisiteCourses: { course: { $in: deletedPreRequisites } },
           },
+          // $in khuje ber kore ki ki ache
         },
         {
           new: true,
