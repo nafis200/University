@@ -162,3 +162,40 @@ Remove faculties
 {
    "faculties":["67790175fad321531500857e"] 
 }
+
+Create semster registration
+
+{{ph-local-url}}/semester-registrations/create-semester-registration
+
+{
+    "academicSemester": "677419fceb4ee272abd4ada6",
+    "status": "ONGOING",
+    "startDate": "2026-02-15T00:00:00.000Z",
+    "endDate": "2026-06-15T00:00:00.000Z",
+    "minCredit": 12,
+    "maxCredit": 18
+}
+
+getall semester registration
+
+{{ph-local-url}}/semester-registrations
+
+Created-offered-course
+{{ph-local-url}}/offered-courses/create-offered-course
+
+{
+  "semesterRegistration": "678023664f2bcf1c40b9f975",
+  "academicSemester": "677419fceb4ee272abd4ada6",
+  "academicFaculty": "6774fc9b3328edefe4a5cb3b",
+  "academicDepartment": "6774ffb1440fdb9e6dba81e2",
+  "course": "677844a506caa879f487d072",
+  "faculty": "6779010084d489af569652f2",
+  "maxCapacity": 50,
+  "section": 1,
+  "days": ["Mon", "Wed", "Fri"],
+  "startTime": "09:00",
+  "endTime": "11:00"
+}
+
+
+
