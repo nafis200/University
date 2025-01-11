@@ -69,6 +69,7 @@ userSchema.statics.isJWTIssuedBeforePasswordChanged = function (
 ) {
   const passwordChangedTime =
     new Date(passwordChangedTimestamp).getTime() / 1000;
+    // getTime method ta second e asbe. eke milisecond e convert korte hobe beacuse jwtIssuedTImestamp milisecond e asbe
   return passwordChangedTime > jwtIssuedTimestamp;
 };
 

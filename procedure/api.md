@@ -199,3 +199,19 @@ Created-offered-course
 
 
 
+Auth login
+
+http://localhost:5000/api/v1/auth/login
+
+{
+    "id":"2030020005",
+    "password":"123"
+}
+
+
+{{ph-local-url}}/auth/change-password
+
+{
+    "oldPassword": "123",
+    "newPassword": "1234"
+}

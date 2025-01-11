@@ -7,6 +7,13 @@ import { TUserRole } from '../modules/user/user.interface';
 import { User } from '../modules/user/user.model';
 import catchAsync from '../utils/catchAsync';
 
+
+// interface CustomRequest extends Reques {
+//   user: JwtPayload
+// }
+
+// req:CustomRequest use korle sob jagay use korte hobe na hole token pabe na
+
 const auth = (...requiredRoles: TUserRole[]) => {
   return catchAsync(async (req: Request, res: Response, next: NextFunction) => {
     const token = req.headers.authorization;

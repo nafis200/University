@@ -42,6 +42,18 @@ const loginUser = async (payload: TLoginUser) => {
     role: user.role,
   };
 
+  // jwt.sign({
+  //   data: 'foobar'
+  // }, 'secret', { expiresIn: 60 * 60 });
+  
+  // //or even better:
+  
+  // jwt.sign({
+  //   data: 'foobar'
+  // }, 'secret', { expiresIn: '1h' });
+
+  // data --> payload secret ---> access_secret time--> time 
+
   const accessToken = createToken(
     jwtPayload,
     config.jwt_access_secret as string,
