@@ -9,6 +9,7 @@ export interface TUser {
   passwordChangedAt?: Date;
   role: 'admin' | 'student' | 'faculty';
   status: 'in-progress' | 'blocked';
+  profileImg?: string;
   isDeleted: boolean;
 }
 
