@@ -25,6 +25,9 @@ const userSchema = new Schema<TUser,UserModel>(
       enum: ['in-progress', 'blocked'],
       default: 'in-progress',
     },
+    email:{
+        type:String
+    },
     isDeleted: {
       type: Boolean,
       default: false,

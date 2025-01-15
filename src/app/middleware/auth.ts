@@ -23,6 +23,7 @@ const auth = (...requiredRoles: TUserRole[]) => {
       throw new AppError(httpStatus.UNAUTHORIZED, 'You are not authorized!');
     }
 
+
     // checking if the given token is valid
     const decoded = jwt.verify(
       token,

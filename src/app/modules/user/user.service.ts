@@ -137,7 +137,8 @@ const createAdminIntoDB = async (password: string, payload: TFaculty) => {
 
   //set student role
   userData.role = 'admin';
-
+  userData.email=payload.email
+  
   const session = await mongoose.startSession();
 
   try {
@@ -155,7 +156,6 @@ const createAdminIntoDB = async (password: string, payload: TFaculty) => {
     // set id , _id as user
     payload.id = newUser[0].id;
     payload.user = newUser[0]._id; //reference _id
-
     // create a admin (transaction-2)
     const newAdmin = await Admin.create([payload], { session });
 
