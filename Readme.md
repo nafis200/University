@@ -17,3 +17,50 @@ it uses future
 
 - [Lorem Ipsum](https://www.lipsum.com/) uses [Babel](https://babeljs.io/) for Fast Refresh
 
+
+- fronted image upload code
+
+import './App.css'
+
+function App() {
+  const handleFileUpload = async (event) => {
+    const file = event.target.files[0]; 
+    if (!file) {
+      console.log("No file selected");
+      return; 
+    }
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "image-upload");
+    data.append("cloud_name", "df1plpdvy");
+
+    try {
+      const res = await fetch("https://api.cloudinary.com/v1_1/df1plpdvy/image/upload", {
+        method: "POST",
+        body: data,
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to upload image");
+      }
+
+      const uploadImageUrl = await res.json();
+      console.log("Uploaded Image URL:", uploadImageUrl.url); 
+    } catch (error) {
+      console.error("Error uploading image:", error);
+    }
+  };
+
+  return (
+    <>
+      <input
+        type="file"
+        className="file-input"
+        onChange={handleFileUpload}
+      />
+    </>
+  );
+}
+
+export default App;
