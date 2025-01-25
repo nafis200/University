@@ -43,3 +43,5 @@ const storage = multer.diskStorage({
 });
 
 export const upload = multer({ storage: storage });
+
+// process.cwd() current path. + uploads folderve

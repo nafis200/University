@@ -88,7 +88,7 @@ const createStudentIntoDB = async (file: any,
 
     // create a student (transaction-2)
 
-    const newStudent = await Student.create([payload], { session });
+     const newStudent = await Student.create([payload], { session });
 
     if (!newStudent.length) {
       throw new AppError(httpStatus.BAD_REQUEST, 'Failed to create student');

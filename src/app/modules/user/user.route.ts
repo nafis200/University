@@ -44,6 +44,7 @@ router.post(
   (req: Request, res: Response, next: NextFunction) => {
     // console.log(req.body);
     req.body = JSON.parse(req.body.data);
+    // come from postman as a data
     next();
   },
   validateRequest(createAdminValidationSchema),
